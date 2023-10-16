@@ -16,6 +16,12 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    savedRecipes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "recipe",
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -31,5 +37,5 @@ const blacklistSchema = mongoose.Schema({
 // Creating Blacklist Model Constructor
 const BlacklistModel = mongoose.model("blacklist", blacklistSchema);
 
-// Exporting the User model for use in other modules
+// Exporting the User model and Blacklist model for use in other modules
 module.exports = { UserModel, BlacklistModel };
