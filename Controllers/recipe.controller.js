@@ -2,6 +2,8 @@ const axios = require("axios");
 const { UserModel } = require("../Models/user.model");
 const { RecipeModel } = require("../Models/recipe.model");
 const APIKEY_Confidential = process.env.APIKEY;
+
+//http://localhost:8080/recipe/get?query=pasta
 const searchRecipe = async (req, res) => {
   try {
     const { query } = req.query;
@@ -43,7 +45,8 @@ const searchRecipe = async (req, res) => {
     res.status(500).json({ msg: error.message, success: false });
   }
 };
-
+// for recent search get route
+//http://localhost:8080/recipe/recent
 const savedRecipe = async (req, res) => {
   try {
     const { userID } = req;
